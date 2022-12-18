@@ -1,22 +1,9 @@
 ---
-author: "SID: 490185362 & 500483091 & 450192993"
-date: University of Sydney \| MATH1005 \| February Intensive 2021
-output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    number_sections: yes
-    self_contained: yes
-    theme: flatly
-    toc: true
-    toc_depth: 3
-    toc_float: true
-subtitle: Statistical Report of COVID-19, Pneumonia, and Influenza Death
-  Counts in the United States
-title: MATH1005 Project1
----
 
-`<br>`{=html}
+# Statistical Report of COVID-19, Pneumonia, and Influenza Death Counts in the United States
+The University of Sydney
+
+
 
 # Executive Summary
 
@@ -27,7 +14,7 @@ Influenza between males and females, and to investigate which illness,
 out of COVID-19, Pneumonia, and Influenza has the greatest impact on
 total deaths within the United States. The analyses include diagnoses of
 the appropriateness of the statistical models used for the data.
-`<br>`{=html}
+
 
 The first discovery is that there is a greater discrepancy in death
 counts for COVID-19 between males and females (across all ages) than for
@@ -35,13 +22,13 @@ Pneumonia and Influenza. Moreover, there was an approximately equal
 range for males with COVID-19 and Pneumonia. There was a greater range
 for males with Pneumonia and the greatest range was for females with
 COVID-19. Influenza showed much lower results for both males and females
-compared to COVID-19 and Pneumonia. `<br>`{=html}
+compared to COVID-19 and Pneumonia.
 
 The second discovery is that COVID-19 showed the greatest impact on
 total deaths within the US, closely followed by Pneumonia, with
 Influenza showing a far less impact on total death counts. These results
 have implications for the impact that an effective and wide-spread
-vaccine can have on saving lives. `<br>`{=html}
+vaccine can have on saving lives. 
 
 # Full Report
 
@@ -114,7 +101,7 @@ The data is not valid/is limited because:
     omitting the column of "Pneumonia and COVID-19 Deaths" from the data
     analysis.
 
-`<br>`{=html}
+
 
 ## Research Question 1
 
@@ -226,14 +213,14 @@ histograms are still comparable. Other data issues include:
     quartile of data but instead reflects the susceptibility of the sex
     as a whole for all ages.
 
-`<br>`{=html}
+
 
 #### Data analysis
 
 Median and interquartile range (IQR) were used in place of mean and
 standard deviation (SD), as our data is right-skewed.
 
-`<br>`{=html}
+
 
 **---COVID-19---** `<br>`{=html} Female median: 1903 `<br>`{=html} Male
 median: 3839 `<br>`{=html}
@@ -257,7 +244,7 @@ The range of deaths for females (\~60,000) is higher than males
 are more likely to contract/die from COVID-19 than males. However, this
 is confounded by the higher life expectancy of females.
 
-`<br>`{=html}
+
 
 **---PNEUMONIA---** `<br>`{=html} Female median: 2144 `<br>`{=html} Male
 median: 3520 `<br>`{=html}
@@ -272,7 +259,7 @@ older population (shown in the data), it can be deduced that for older
 age groups, the Pneumonia death counts between males and females are
 very similar, despite the lower median in females.
 
-`<br>`{=html}
+
 
 **---INFLUENZA---** `<br>`{=html} Female median: 184 `<br>`{=html} Male
 median: 3520 `<br>`{=html}
@@ -285,25 +272,25 @@ vaccine, which subdues variations caused by age, gender and other
 factors, also explaining the low death count of \~1000, compared to
 +50,000 for COVID-19 and Pneumonia.
 
-`<br>`{=html}
+
 
 ### Summary:
 
 COVID-19 indicates a greater discrepancy in death counts across ages
 between males and females than Pneumonia and Influenza within the US,
-with Influenza showing the lowest discrepancy. `<br>`{=html}
+with Influenza showing the lowest discrepancy. 
 
 COVID-19 and Pneumonia reflected an approximately equal but greater
 range for males in Pneumonia; however, COVID-19 reflected the greatest
-range (60,000) for females. `<br>`{=html}
+range (60,000) for females. 
 
 Influenza had much lower results for both sexes, which can be attributed
-to the presence of an effective vaccine. `<br>`{=html}
+to the presence of an effective vaccine.
 
 The Influenza data can be used as a model for COVID-19 to demonstrate
 the effect a widely implemented vaccine has on a society.
 
-`<br>`{=html}
+
 
 ## Research Question 2
 
@@ -342,7 +329,7 @@ cor(Pneumonia,Total_Deaths)
 cor(Influenza,Total_Deaths)
 ```
 
-`<br>`{=html}
+
 
 ### Regression Line
 
@@ -384,7 +371,7 @@ legend("topright", c("Regression line"),col="green",lty=1:2,cex=0.8)
 L_Influenza$coeff
 ```
 
-`<br>`{=html}
+
 
 ### Residuals
 
@@ -402,7 +389,7 @@ plot(Influenza,L_Influenza$residuals,xlab="Influenza Deaths",ylab ="Residuals",m
 abline(h= 0,col="green")
 ```
 
-`<br>`{=html}
+
 
 ### Vertical Strips
 
@@ -445,7 +432,7 @@ legend("topright", c("Regression line"),col="green",lty=1:2,cex=0.8)
 abline(v=c(0,250,500,750,1000,1250), col=c("pink")) 
 ```
 
-`<br>`{=html}
+
 
 ### Analysis
 
@@ -455,7 +442,7 @@ The correlation coefficient of 1 for Total Deaths vs COVID-19 Deaths, 1
 for Total Deaths vs Pneumonia Deaths, and 0.9 for Total Deaths vs
 Influenza Deaths indicate strong positive relationships.
 
-`<br>`{=html}
+
 
 #### Regression Line:
 
@@ -466,14 +453,14 @@ Influenza Deaths indicate strong positive relationships.
 -   y = -18913.1180 + 409.3284x indicates if Influenza deaths increase
     by 1 death, Total Deaths increase by 409.33 deaths (2dp).
 
-`<br>`{=html}
+
 
 #### Scatter Plot:
 
 The scatter plot shapes for all three pairs display strong positive
 relationships between the two variables in each pair.
 
-`<br>`{=html}
+
 
 #### Residual Plot:
 
@@ -482,7 +469,7 @@ of values about y=0. The scatter plot shapes and the absence of a
 pattern in residuals indicates that a linear model is an appropriate fit
 for the data.
 
-`<br>`{=html}
+
 
 #### Vertical Strips:
 
@@ -491,7 +478,6 @@ plots and the fanning out of points on the residual plots reveal that
 the data is heteroscedastic for all three relationships, indicating that
 the regression lines should not be used for predictions.
 
-`<br>`{=html}
 
 ### Summary
 
@@ -519,7 +505,7 @@ lowest impact (for every Influenza death, there is 409.33 other deaths),
 which can be attributed to the effective employment of the Influenza
 vaccine.
 
-`<br>`{=html}
+
 
 # Contribution statement
 
@@ -538,4 +524,4 @@ National Centre for Health Statistics. (2021). Provisional COVID-19
 Deaths Counts by Sex, Age, and State \[Dataset\].
 https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Sex-Age-and-S/9bhg-hcku
 
-`<br>`{=html}
+
