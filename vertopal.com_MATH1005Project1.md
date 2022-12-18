@@ -5,7 +5,7 @@ The University of Sydney
 
 
 
-# Executive Summary
+# 1 Executive Summary
 
 The aim of this report is to assess the data of COVID-19, Pneumonia, and
 Influenza deaths counts in the United States across all ages and sexes
@@ -30,17 +30,19 @@ Influenza showing a far less impact on total death counts. These results
 have implications for the impact that an effective and wide-spread
 vaccine can have on saving lives. 
 
-# Full Report
+# 2 Full Report
 
-## Initial Data Analysis (IDA)
+## 2.1 Initial Data Analysis (IDA)
 
-### Source of Data
+### 2.1.1 Source of Data
 
-`{r, results='hide', fig.show= 'hide'} data = read.csv("Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv",                 na.strings = c("0","-9"), header = TRUE) Table= read.csv("Table_of_variables.csv", header = TRUE)`
+```
+data = read.csv("Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv",                 na.strings = c("0","-9"), header = TRUE) Table= read.csv("Table_of_variables.csv", header = TRUE)
+```
 
-### Complexity of Data
+### 2.1.2 Complexity of Data
 
-``` {.{r}}
+```
 head(data, n=3 )  #Returns the first three rows of the data 
 dim(data)  #Returns the dimension of data as rows and columns 
 class(data) #Represent the type or style of data 
@@ -54,9 +56,9 @@ data$Age.group=as.factor(data$Age.group)
 str(data) #Retruns the internal structure of the data
 ```
 
-### Classification of Variables
+### 2.1.3 Classification of Variables
 
-``` {.{r}}
+``` 
 library(formattable) #A table of the variables in the data with their description and classification 
 formattable(Table, 
             align =c("l","l","c","c"), 
@@ -64,7 +66,7 @@ formattable(Table,
             "span", style = ~ style(color = "grey",font.weight = "bold"))))
 ```
 
-### Summary
+### 2.1.4 Summary
 
 The data comes from the National Centre for Health Statistics (NCHS) in
 the United States of America between 2 May 2020 and 13 January 2021. It
@@ -103,15 +105,15 @@ The data is not valid/is limited because:
 
 
 
-## Research Question 1
+## 2.2 Research Question 1
 
 How does the spread of COVID-19 death counts compare to Pneumonia and
 Influenza death counts in the United States? How does this compare
 between females and males?
 
-### Graphical summary
+### 2.2.1 Graphical summary
 
-``` {.{r}}
+```
 covidUS <- data[c("State","Sex","Age.group","COVID.19.Deaths","Total.Deaths", "Pneumonia.Deaths","Influenza.Deaths")] # Creating subsets of the data 
 covidUS <- covidUS[!(covidUS$State!="United States"),]
 covidUS <- covidUS[!(covidUS$Sex=="Unknown"),]
@@ -140,9 +142,9 @@ boxplot(Ma_Influenza,Fe_Influenza,names=genders,horizontal=TRUE,
         xlab ="Death Counts",col=c("#497AF4","#FABCEE"),main="Deaths due to Influenza for all ages by gender")
 ```
 
-### Numerical summary
+### 2.2.2 Numerical summary
 
-``` {.{r}}
+``` 
 summary(covidUS) 
 #COVID-19 Female median
 median(Fe_COVID)
@@ -186,17 +188,24 @@ UT_Fe_Influenza =  754.5 + 1.5*(IQR(Fe_Influenza))  # Deaths due to Influenza
 UT_MA_Influenza =  821.5 + 1.5*(IQR(Ma_Influenza))
 ```
 
-### Analysis
+### 2.2.3 Analysis
 
 Each graph indicates the death counts for COVID-19, Pneumonia or
 Influenza within various age groups for both males and females within
 the United States, including: `<br>`{=html}
 
-Under 1 year `<br>`{=html} 1-4 years `<br>`{=html} 5-14 years
-`<br>`{=html} 15-24 years `<br>`{=html} 25-34 years `<br>`{=html} 35-44
-years `<br>`{=html} 45-54 years `<br>`{=html} 55-64 years `<br>`{=html}
-65-74 years `<br>`{=html} 75-84 years `<br>`{=html} 85 years and over
-`<br>`{=html}
+Under 1 year 
+1-4 years 
+5-14 years
+15-24 years 
+25-34 years 
+35-44 years 
+45-54 years
+55-64 years 
+65-74 years 
+75-84 years 
+85 years and over
+
 
 While some age groups include a more comprehensive age range, this
 remains consistent for both males and females, so the respective
@@ -215,29 +224,31 @@ histograms are still comparable. Other data issues include:
 
 
 
-#### Data analysis
+#### 2.2.3.1  Data analysis
 
 Median and interquartile range (IQR) were used in place of mean and
 standard deviation (SD), as our data is right-skewed.
 
 
 
-**---COVID-19---** `<br>`{=html} Female median: 1903 `<br>`{=html} Male
-median: 3839 `<br>`{=html}
+**---COVID-19---** 
+Female median: 1903 
+Male median: 3839 
 
-Female IQR: 20470 `<br>`{=html} Male IQR: 33777 `<br>`{=html}
+Female IQR: 20470 
+Male IQR: 33777 
 
 The lower female median indicates an overall lower death rate for
 females than males for COVID-19, as 50% of age groups have a death count
-lower than 1903. `<br>`{=html}
+lower than 1903. 
 
 The middle 50% (Q2 and Q3) of values is much more spread for males,
 displayed by the wider box length within the male box plot and higher
-IQR value. `<br>`{=html}
+IQR value. 
 
 For both boxes, the lowest two quartiles indicated the densest data,
 showing that the COVID-19 death count is relatively low for the majority
-of age groups. `<br>`{=html}
+of age groups.
 
 The range of deaths for females (\~60,000) is higher than males
 (\~50,000), thanks to an outlier, possibly showing that older females
@@ -246,10 +257,12 @@ is confounded by the higher life expectancy of females.
 
 
 
-**---PNEUMONIA---** `<br>`{=html} Female median: 2144 `<br>`{=html} Male
-median: 3520 `<br>`{=html}
+**---PNEUMONIA---** 
+Female median: 2144 
+Male median: 3520 
 
-Female IQR: 21973.5 `<br>`{=html} Male IQR: 33585.5 `<br>`{=html}
+Female IQR: 21973.5 
+Male IQR: 33585.5 
 
 Pneumonia has a lower female median than male median, similar to
 COVID-19's statistical implications. This is also true for the IQR.
@@ -261,10 +274,12 @@ very similar, despite the lower median in females.
 
 
 
-**---INFLUENZA---** `<br>`{=html} Female median: 184 `<br>`{=html} Male
-median: 3520 `<br>`{=html}
+**---INFLUENZA---**
+Female median: 184 
+Male median: 3520 
 
-Female IQR: 714 `<br>`{=html} Male IQR: 784 `<br>`{=html}
+Female IQR: 714 
+Male IQR: 784 
 
 The medians and IQR for males and females are almost equal with similar
 ranges. This could be attributed to the prevalence of the influenza
@@ -274,7 +289,7 @@ factors, also explaining the low death count of \~1000, compared to
 
 
 
-### Summary:
+### 2.2.4 Summary:
 
 COVID-19 indicates a greater discrepancy in death counts across ages
 between males and females than Pneumonia and Influenza within the US,
@@ -292,13 +307,13 @@ the effect a widely implemented vaccine has on a society.
 
 
 
-## Research Question 2
+## 2.3 Research Question 2
 
 Which illness, out of COVID-19, Pneumonia, and Influenza, has the
 highest impact on total death counts in the US across all ages and
 sexes?
 
-``` {.{r}}
+``` 
 #Remove scientific notation format
 options(scipen=999)
 
@@ -316,9 +331,9 @@ Influenza = covidUS$Influenza.Deaths
 Total_Deaths = covidUS$Total.Deaths 
 ```
 
-### Correlation Coefficients
+### 2.3.1 Correlation Coefficients
 
-``` {.{r}}
+``` 
 #Total Deaths vs COVID-19 
 cor(COVID_19,Total_Deaths) 
 
@@ -331,9 +346,9 @@ cor(Influenza,Total_Deaths)
 
 
 
-### Regression Line
+### 2.3.2 Regression Line
 
-``` {.{r}}
+``` 
 #A regression line on the scatter plot for Total Deaths vs COVID 19
 L_COVID_19 = lm(Total_Deaths~COVID_19) 
 plot(COVID_19,Total_Deaths,
@@ -373,9 +388,9 @@ L_Influenza$coeff
 
 
 
-### Residuals
+### 2.3.3 Residuals
 
-``` {.{r}}
+``` 
 #Residual plot for Total Deaths vs COVID 19
 plot(COVID_19,L_COVID_19$residuals,xlab="COVID-19 Deaths",ylab ="Residuals", main="Residual Plot of Total Deaths vs COVID-19 Deaths")
 abline(h=0,col="blue")
@@ -391,9 +406,9 @@ abline(h= 0,col="green")
 
 
 
-### Vertical Strips
+### 2.3.4 Vertical Strips
 
-``` {.{r}}
+``` 
 ##A regression line on the scatter plot for Total Deaths vs COVID 19
 L_COVID_19 = lm(Total_Deaths~COVID_19) 
 plot(COVID_19,Total_Deaths,
@@ -434,9 +449,9 @@ abline(v=c(0,250,500,750,1000,1250), col=c("pink"))
 
 
 
-### Analysis
+### 2.3.5 Analysis
 
-#### Correlation:
+#### 2.3.5.1 Correlation:
 
 The correlation coefficient of 1 for Total Deaths vs COVID-19 Deaths, 1
 for Total Deaths vs Pneumonia Deaths, and 0.9 for Total Deaths vs
@@ -444,7 +459,7 @@ Influenza Deaths indicate strong positive relationships.
 
 
 
-#### Regression Line:
+#### 2.3.5.2 Regression Line:
 
 -   y = 19764.608100 + 8.862942x indicates if COVID-19 Deaths increase
     by 1 death, Total Deaths increase by 8.86 deaths (2dp).
@@ -455,14 +470,14 @@ Influenza Deaths indicate strong positive relationships.
 
 
 
-#### Scatter Plot:
+#### 2.3.5.3 Scatter Plot:
 
 The scatter plot shapes for all three pairs display strong positive
 relationships between the two variables in each pair.
 
 
 
-#### Residual Plot:
+#### 2.3.5.4 Residual Plot:
 
 The residual plots for all three relationships display a random spread
 of values about y=0. The scatter plot shapes and the absence of a
@@ -471,7 +486,7 @@ for the data.
 
 
 
-#### Vertical Strips:
+#### 2.3.5.5 Vertical Strips:
 
 The unequal spread of points across the vertical strips on the scatter
 plots and the fanning out of points on the residual plots reveal that
@@ -479,7 +494,7 @@ the data is heteroscedastic for all three relationships, indicating that
 the regression lines should not be used for predictions.
 
 
-### Summary
+### 2.3.6 Summary
 
 The strong positive linear relationships between Total Deaths vs
 COVID-19, Pneumonia, and Influenza Deaths can be attributed to the fact
@@ -507,18 +522,15 @@ vaccine.
 
 
 
-# Contribution statement
+# 3 Contribution statement
 
-**490185362:** `<br>`{=html} IDA variables `<br>`{=html} Research
-Question 1 `<br>`{=html} Research Question 2 `<br>`{=html}
+**490185362:**  IDA variables, Research Question 1, Research Question 2 
 
-**500483091:** `<br>`{=html} IDA variables `<br>`{=html} IDA source
-`<br>`{=html} Research Question 1 `<br>`{=html}
+**500483091:** IDA variables, IDA source, Research Question 1
 
-**450192993:** `<br>`{=html} Executive summary `<br>`{=html} IDA source
-`<br>`{=html} Research Question 2 `<br>`{=html}
+**450192993:** Executive summary, IDA source, Research Question 2
 
-# References
+# 4 References
 
 National Centre for Health Statistics. (2021). Provisional COVID-19
 Deaths Counts by Sex, Age, and State \[Dataset\].
