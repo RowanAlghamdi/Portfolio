@@ -141,6 +141,10 @@ boxplot(Ma_Pneumonia,Fe_Pneumonia,names=genders,horizontal=TRUE,
 boxplot(Ma_Influenza,Fe_Influenza,names=genders,horizontal=TRUE,
         xlab ="Death Counts",col=c("#497AF4","#FABCEE"),main="Deaths due to Influenza for all ages by gender")
 ```
+![](/images/image1.png)
+![](/images/image2.png)
+![](/images/image3.png)
+
 
 ### 2.2.2 Numerical summary
 
@@ -385,6 +389,9 @@ legend("topright", c("Regression line"),col="green",lty=1:2,cex=0.8)
 ##Slope and Intercept
 L_Influenza$coeff
 ```
+![](/images/image4.png)
+![](/images/image5.png)
+![](/images/image6.png)
 
 
 
@@ -403,6 +410,10 @@ abline(h=0,col="red")
 plot(Influenza,L_Influenza$residuals,xlab="Influenza Deaths",ylab ="Residuals",main="Residual Plot of Total Deaths vs Influenza Deaths")
 abline(h= 0,col="green")
 ```
+
+![](/images/image7.png)
+![](/images/image8.png)
+![](/images/image9.png)
 
 
 
@@ -446,6 +457,10 @@ legend("topright", c("Regression line"),col="green",lty=1:2,cex=0.8)
 ##Vertical Strips
 abline(v=c(0,250,500,750,1000,1250), col=c("pink")) 
 ```
+
+![](/images/image10.png)
+![](/images/image11.png)
+![](/images/image12.png)
 
 
 
