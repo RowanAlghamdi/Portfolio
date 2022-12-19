@@ -1,30 +1,14 @@
----
-author: "SID: 490185362"
-date: University of Sydney \| MATH1005 \| February Intensive 2021
-output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    number_sections: yes
-    self_contained: yes
-    theme: flatly
-    toc: true
-    toc_depth: 3
-    toc_float: true
-subtitle: Enterococci bacteria levels in the water of Sydney Northern
-  Beaches during the year 2018
-title: MATH1005 Project 2
----
+# Enterococci bacteria levels in the water of Sydney Northern Beaches during the year 2018
+The  University of Sydney
 
-`<br>`{=html}
 
-# Executive Summary
+# 1 Executive Summary
 
 This report aims to investigate differences in Enterococci levels at
 Sydney's Northern Beaches. We determined which site had the highest and
 lowest Enterococci levels and its variation throughout 2018 by comparing
 the box plot's medians and IQR's. Next, we examined the impact of
-seasonal changes on the Enterococci levels. `<br>`{=html}
+seasonal changes on the Enterococci levels.
 
 The report's discoveries showed that the lowest Enterococci level was at
 Avalon and Mona Vale beaches and the highest at Birdwood Park. We found
@@ -33,18 +17,20 @@ contamination was during winter and spring. However, by carrying out a
 hypothesis T-Test, we proved no significant impact of seasonal variation
 on Enterococci levels.
 
-`<br>`{=html}
 
-# Full Report
 
-## Initial Data Analysis (IDA)
+# 2 Full Report
 
-### Source of Data
+## 2.1 Initial Data Analysis (IDA)
 
-`{r, results='hide', fig.show= 'hide'} data = read.csv("beaches.csv",na.strings = c("-9"), header = TRUE) Table= read.csv("Table_of_variables.csv", header = TRUE)`
-\#\#\# Complexity of Data
+### 2.1.1 Source of Data
 
-``` {.{r}}
+```
+data = read.csv("beaches.csv",na.strings = c("-9"), header = TRUE) Table= read.csv("Table_of_variables.csv", header = TRUE)
+```
+### 2.1.2 Complexity of Data
+
+``` 
 head(data, n=3 )  #Returns the first three rows of the data 
 dim(data)  #Returns the dimension of data as rows and columns 
 class(data) #Represent the type or style of data 
@@ -60,9 +46,9 @@ data$Day.of.Week=as.factor(data$Day.of.Week)
 str(data) #Returns the internal structure of the data
 ```
 
-### Classification of Variables
+### 2.1.3 Classification of Variables
 
-``` {.{r}}
+``` 
 library(formattable) #A table of the variables in the data with their description and classification 
 formattable(Table, 
             align =c("l","l","c","c"), 
@@ -70,9 +56,9 @@ formattable(Table,
             "span", style = ~ style(color = "grey",font.weight = "bold"))))
 ```
 
-### Summary
+### 2.1.4 Summary
 
-#### Source of Data :
+#### 2.1.4.1 Source of Data :
 
 The Enterococci bacteria data of Sydney Northern Beaches were collected
 under the Beachwatch Water Quality Program and recorded by the NSW
@@ -82,7 +68,6 @@ suitable each site is for swimming during 2018. The data set analysis
 will help individuals make their decisions about when and where to swim.
 It will also help to investigate community concerns surrounding
 potential fecal or other sewage contamination in polluted water.
-`<br>`{=html}
 
 Enterococci bacteria are rarely present in clean water, and it mostly
 appears due to the presence of fecal material by humans or animals
@@ -95,9 +80,9 @@ research on the Enterococci and its impact on society. This data set
 could also be used to develop or implement programs by private sewage
 disposal companies in order to reduce and solve the issue of
 contamination in beaches due to the Enterococci level in the water.
-`<br>`{=html}
 
-#### Classification of Variables :
+
+#### 2.1.4.2 Classification of Variables :
 
 The data set contains a 1276 set of observations and 10 variables. The
 variables R classification is shown in the table above. Variables are X,
@@ -111,9 +96,9 @@ were approximately measured to be 151.33 and 33.6, respectively \[1\].
 The data includes the swimming site, the month and the exact date on
 which the sample was obtained. Lastly, the Enterococci bacteria level
 was measured in colony-forming units per 100mL \[CFU/100mL\] for each
-sample \[3\]. `<br>`{=html}
+sample \[3\]. 
 
-#### Reliability and Limitations:
+#### 2.1.4.3 Reliability and Limitations:
 
 This data set is reliable since it does not contain any missing data,
 and it has a large sample size of 1276 throughout 22 different beaches
@@ -126,18 +111,18 @@ each beach. Also, the data is not appropriate for long term analysis as
 it just includes sample taken during the year 2018. Other factors that
 might affect scientists' analysis are a precise hourly timed measurement
 and the method used in the laboratory to test the Enterococci level in
-the samples. `<br>`{=html}
+the samples. 
 
-## Research Question 1
+## 2.2 Research Question 1
 
 Which swimming site of The Northern Beaches Council area in the Northern
 Beaches region of Sydney has the highest Enterococci bacteria level? And
 is there a particular month(s) where the Enterococci bacteria level was
-high across most beaches? `<br>`{=html}
+high across most beaches? 
 
-### Graphical summary
+### 2.2.1 Graphical summary
 
-``` {.{r}}
+``` 
 Enterococci <- data[c("Site","Month","Enterococci..cfu.100ml.")] # Creating subsets of the data 
  # Isolating the level of Enterococci Bacteria at each swimming site
 E_1 = Enterococci$Enterococci..cfu.100ml.[Enterococci$Site =="Avalon Beach"]
@@ -172,7 +157,7 @@ boxplot(E_1,E_2,E_3,E_4,E_5,E_6,E_7,E_8,E_9,E_10,E_11,E_12,E_13,E_14,E_15,E_16,E
        main="Enterococci levels for all swimming sites in the Northern Beaches region")
 ```
 
-``` {.{r}}
+``` 
  # Isolating the level of Enterococci Bacteria at of each month of 2018
 one_M = Enterococci$Enterococci..cfu.100ml.[Enterococci$Month =="January"] 
 two_M = Enterococci$Enterococci..cfu.100ml.[Enterococci$Month =="February"] 
@@ -194,9 +179,9 @@ boxplot(one_M,two_M,three_M,four_M,five_M,six_M,seven_M,eight_M,nine_M,ten_M,ele
        main="Enterococci levels during the months of 2018 in the Northern Beaches")
 ```
 
-### Numerical summary
+### 2.2.2 Numerical summary
 
-``` {.{r}}
+``` 
 # summary(Enterococci)
 # Median and interquartile range (IQR) of Enterococci Bacteria level at  swimming site 1
 median(E_1) 
@@ -268,7 +253,7 @@ All_sites= c( median(E_1),median(E_2),median(E_3),median(E_4),median(E_5),median
 max_1=max(All_sites)
 ```
 
-``` {.{r}}
+``` 
 # Median and interquartile range (IQR) of Enterococci Bacteria level during JAN of 2018 for all swimming site
 median(one_M)
 IQR(one_M)
@@ -309,39 +294,39 @@ All_months= c(median(one_M),median(two_M),median(three_M),median(four_M),median(
 max_2=max(All_months) #22
 ```
 
-### Graphical summary Analysis
+### 2.2.3 Graphical summary Analysis
 
 The first box plot represents a comparison of Enterococci levels for all
 swimming sites. The second box plot represents a comparison of
 Enterococci levels for all months in 2018. We noticed strong outliers
 for both plots and a wide spread of data in the first plot. Other very
 large outliers in the first plot have been eliminated for clarity.\
-`<br>`{=html}
 
-### Numerical summary analysis
+
+### 2.2.4 Numerical summary analysis
 
 Median and interquartile range (IQR) were used in place of mean and
 standard deviation (SD), as our data is skewed and due to the presence
 of many strong outliers.\
-`<br>`{=html}
 
-**Data reported as (median, IQR)** `<br>`{=html}
+
+**Data reported as (median, IQR)** 
 
 **---Enterococci bacteria level for each swimming site---**
-`<br>`{=html}
+
 
 Avalon and Mona Vale beaches have the lowest median and IQR. Hence, they
-were suitable for swimming `<br>`{=html}
+were suitable for swimming 
 
 Palm, Turimetta, Bilgola, and North Narrabeen beaches also have a low
 median, but the middle 50% (Q2 and Q3) values are much more spread,
 which is displayed by the wider box length and higher IQR values.
-`<br>`{=html}
+
 
 Birdwood Park has the highest median and IQR. Hence, the water is very
-polluted, and it is not safe for swimming. `<br>`{=html}
+polluted, and it is not safe for swimming.
 
-**---Enterococci bacteria level for each month---** `<br>`{=html}
+**---Enterococci bacteria level for each month---** 
 
 The medians and IQR are low and almost equal, with similar ranges from
 July to December. Hence, it is safest to swim during winter and spring.
@@ -350,16 +335,16 @@ July to December. Hence, it is safest to swim during winter and spring.
 In contrast, the medians and IQR are very high and almost equal, with
 similar ranges from January to June due to the high fecal contamination.
 The highest Enterococci level was observed in March, where the lowest
-was observed to be August. `<br>`{=html}
+was observed to be August. 
 
-### Summary:
+### 2.2.5 Summary:
 
 To summarize, we found that Avalon and Mona Vale beaches have the lowest
 Enterococci level. The water at Birdwood Park is most polluted, and the
 site not safe for swimming. Next, we found a high level of fecal
 contamination in the water in all sites in the Northern Beaches region
 of Sydney during summer and autumn. It is safest to swim during winter
-and spring. `<br>`{=html}
+and spring. 
 
 Researchers directly linked the high concentration of Enterococci in
 polluted water and increased risk of illness for swimmers, particularly
@@ -371,27 +356,27 @@ suggest a measuring Enterococci on hands and skin will help understand
 post-collection stored water contamination and water contamination in
 general. However, a limitation is that there are no current regulations
 or standard methods for measuring Enterococci on the skin. However,
-further work needs to be done to prove this idea \[4\]. `<br>`{=html}
+further work needs to be done to prove this idea \[4\]. 
 
-## Research Question 2
+## 2.3 Research Question 2
 
 Does the change in season affect the Enterococci level in a swimming
-site? `<br>`{=html}
+site? 
 
-### Comparative Boxplots
+### 2.3.1 Comparative Boxplots
 
-``` {.{r}}
+``` 
 summer=Enterococci[(Enterococci$Month=="December"|Enterococci$Month=="January"|Enterococci$Month=="February"),]   # summer months in Sydeny
 winter=Enterococci[(Enterococci$Month=="June"|Enterococci$Month=="July"|Enterococci$Month=="August"),]  # winter months in Sydeny
 boxplot(summer$Enterococci..cfu.100ml.,winter$Enterococci..cfu.100ml.,names=c("Summer","Winter"),las = 2,horizontal=T
 ,main="Enterococci levels during summer and winter of 2018")
 ```
 
-`<br>`{=html}
 
-### Levene's Test (Variance Test)
 
-``` {.{r}}
+### 2.3.2 Levene's Test (Variance Test)
+
+```
 library(car) 
 # Levene's Test for equality of variances
 leveneTest( c(winter$Enterococci..cfu.100ml., summer$Enterococci..cfu.100ml.),
@@ -399,14 +384,14 @@ leveneTest( c(winter$Enterococci..cfu.100ml., summer$Enterococci..cfu.100ml.),
            rep("summer",length(summer$Enterococci..cfu.100ml.)))))
 ```
 
-### Welch 2-Sample T-Test
+### 2.2.3 Welch 2-Sample T-Test
 
 We will use the Welch 2-Sample T-Test to test for the difference in
 means of Enterococci levels during summer and winter of 2018 in the
 Northern Beaches region of Sydney since the 2 samples have unequal
 variance by the Levene's Test.
 
-``` {.{r}}
+``` 
 mu1=mean(summer$Enterococci..cfu.100ml.) # Mean of sample 1 
 mu2=mean(winter$Enterococci..cfu.100ml.)  # Mean of sample 2 
 n1=length(summer$Enterococci..cfu.100ml.) # Size of sample 1
@@ -423,58 +408,56 @@ Pvalue =2*pt(abs(TestStat),608.16,lower.tail=F) # P-value
 c(TestStat, Pvalue, df) 
 ```
 
-``` {.{r}}
+``` 
 t.test(summer$Enterococci..cfu.100ml.,winter$Enterococci..cfu.100ml.,var.equal=F) #speedy way in R
 ```
 
-`<br>`{=html}
 
-### Analysis
 
-#### Hypotheses $H_0$ vs. $H_1$
+### 2.3.4 Analysis
 
-**---Null Hypotheses---** `<br>`{=html} $H_0$: The mean of Enterococci
-levels in all swimming site is equal in both summer and winter seasons
-such that $\mu_1 = \mu_2$. `<br>`{=html}
+#### 2.3.4.1 Hypotheses $H_0$ vs. $H_1$
 
-**---Alternative Hypotheses---** `<br>`{=html} $H_1$: The mean of
-Enterococci levels in all swimming site is not equal in summer compared
-to winter season $\mu_1 \neq \mu_2$. `<br>`{=html}
+**---Null Hypotheses---** 
+$H_0$: The mean of Enterococci levels in all swimming site is equal in both summer and winter seasons such that $\mu_1 = \mu_2$. 
 
-#### Assumptions
+**---Alternative Hypotheses---** 
+$H_1$: The mean of Enterococci levels in all swimming site is not equal in summer compared to winter season $\mu_1 \neq \mu_2$. 
+
+#### 2.3.4.2 Assumptions
 
 **A1.** Both seasons are independent samples of each other. Hence, the
-first assumption is satisfied. `<br>`{=html}
+first assumption is satisfied. 
 
 **A2.** Although the sample mean (sample sum) does not follow a normal
 distribution, the sample size is big enough for the central limit
 theorem to apply. Hence, the second assumption is satisfied.
-`<br>`{=html}
+
 
 **A3.** Using the Levene's Test (Variance Test) to compare the two
 variances of winter and summer, we found the p-value to be
 $7.068 \times 10^{-5}$, which is less than the significance level of
 $0.05$. Hence, there is a significant difference between the two
 variances(spread). However, This assumption is satisfied by using the
-Welch 2-Sample T-Test. `<br>`{=html}
+Welch 2-Sample T-Test. 
 
-#### Test statistic
+#### 2.3.4.3 Test statistic
 
 We will use the Test Statistic to measure the difference between summer
 and winter and what is expected based on $H_{0}$ : Test Statistic =
-$\frac{OV-EV}{\hat{SE}}$, `<br>`{=html}
+$\frac{OV-EV}{\hat{SE}}$, 
 
 where the standard error is
-${SE}=\sqrt{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})}$ `<br>`{=html}
+${SE}=\sqrt{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})}$
 
 and sample standard deviation is $S_{k}=\hat{SD_k}$ , $k=1,2$.
-`<br>`{=html}
 
-We substitute the values into the equations : `<br>`{=html} Observed
-value = $\bar{x_1}-\bar{x_2}= 25.8-16.7=9.06$ `<br>`{=html}
+
+We substitute the values into the equations :  Observed
+value = $\bar{x_1}-\bar{x_2}= 25.8-16.7=9.06$ 
 
 Expected value = $0$ since our null hypothesis is that there is no
-difference in population means. `<br>`{=html}
+difference in population means. 
 
 The sample size for both populations is equal such that $n_1=n_2=308$.
 The sample standard deviation is $SD_1= 29.5$ and $SD_2= 26.8$. We
@@ -482,45 +465,45 @@ calculated the standard error to be ${SE}=2.27$. We substituted all the
 values and calculated the Test Statistic to be $3.99$. We obtained the
 degree of freedom using
 $\nu=\frac{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})^2}{\frac{ (\frac{S_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{S_2^2}{n_2})^2}{n_2-1}}$
-= $608.16$ . `<br>`{=html}
+= $608.16$ . 
 
 Finally, we used the `t.test`function in R and obtained the exact values
-for the Test Statistic and degree of freedom. `<br>`{=html}
+for the Test Statistic and degree of freedom.
 
-#### P-value
+#### 2.3.4.4 P-value
 
 We found the p-value, which is the probability of $H_{0}$ being true
 equal to $7.343 \times 10^{-5}$ using both`pt` and `t.test` function in
-R. `<br>`{=html}
+R. 
 
 $p = P(T > |$ Test Statistic
 $|)= 2 \times P(T > | 3.992|)= 7.343 \times 10^{-5} < 0.05$.
-`<br>`{=html}
+
 
 The convention is to reject the null hypothesis if $p<0.05$. Since the
 p-value is less than $0.05$, we do have enough evidence to reject the
 null hypothesis, and so the data does provide evidence that
-$\mu_1 \neq \mu_2$. `<br>`{=html}
+$\mu_1 \neq \mu_2$. 
 
-#### Conclusion
+#### 2.3.4.5 Conclusion
 
-**---Statistical Conclusion:---** `<br>`{=html}
+**---Statistical Conclusion:---** 
 
 Mean values are statically different for winter and summer, which means
 that the Enterococci level increases in summer and decreases in winter.
 As the p-value \< 0.05, we reject the null hypothesis. We also have the
 $95$% Confidence Interval for the mean difference $(4.60, 13.52)$, which
-does not contain the null hypothesis value of zero. `<br>`{=html}
+does not contain the null hypothesis value of zero. 
 
-**---Scientific Conclusion:---** `<br>`{=html}
+**---Scientific Conclusion:---**
 
 Using the Welch 2-Sample T-Test, the data does not provide evidence that
 the Enterococci level is not affected by the change in seasons. This
 could be explained by the increase of Enterococci in the rainfall
 seasons(during summer) and the decrease in drier weather (during
-winter). `<br>`{=html}
+winter). 
 
-# References
+# 3 References
 
 \[1\] Enterococci data download. (n.d.). Retrieved February 07, 2021,
 from https://www.environment.nsw.gov.au/beachapp/report_enterococci.aspx
