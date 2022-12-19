@@ -1,5 +1,6 @@
 # Enterococci bacteria levels in the water of Sydney Northern Beaches during the year 2018
-The  University of Sydney
+The University of Sydney
+SID: 490185362
 
 
 # 1 Executive Summary
@@ -300,14 +301,14 @@ The first box plot represents a comparison of Enterococci levels for all
 swimming sites. The second box plot represents a comparison of
 Enterococci levels for all months in 2018. We noticed strong outliers
 for both plots and a wide spread of data in the first plot. Other very
-large outliers in the first plot have been eliminated for clarity.\
+large outliers in the first plot have been eliminated for clarity.
 
 
 ### 2.2.4 Numerical summary analysis
 
 Median and interquartile range (IQR) were used in place of mean and
 standard deviation (SD), as our data is skewed and due to the presence
-of many strong outliers.\
+of many strong outliers.
 
 
 **Data reported as (median, IQR)** 
@@ -330,7 +331,7 @@ polluted, and it is not safe for swimming.
 
 The medians and IQR are low and almost equal, with similar ranges from
 July to December. Hence, it is safest to swim during winter and spring.
-`<br>`{=html}
+
 
 In contrast, the medians and IQR are very high and almost equal, with
 similar ranges from January to June due to the high fecal contamination.
@@ -419,9 +420,11 @@ t.test(summer$Enterococci..cfu.100ml.,winter$Enterococci..cfu.100ml.,var.equal=F
 #### 2.3.4.1 Hypotheses $H_0$ vs. $H_1$
 
 **---Null Hypotheses---** 
+
 $H_0$: The mean of Enterococci levels in all swimming site is equal in both summer and winter seasons such that $\mu_1 = \mu_2$. 
 
 **---Alternative Hypotheses---** 
+
 $H_1$: The mean of Enterococci levels in all swimming site is not equal in summer compared to winter season $\mu_1 \neq \mu_2$. 
 
 #### 2.3.4.2 Assumptions
@@ -507,16 +510,16 @@ winter).
 
 \[1\] Enterococci data download. (n.d.). Retrieved February 07, 2021,
 from https://www.environment.nsw.gov.au/beachapp/report_enterococci.aspx
-`<br>`{=html}
+
 
 \[2\] Indicators: Enterococci. (2016, August 16). Retrieved February 09,
 2021, from
 https://www.epa.gov/national-aquatic-resource-surveys/indicators-enterococci
-`<br>`{=html}
+
 
 \[3\] State of the beaches 2018-2019 \[PDF\]. (n.d.). DEPARTMENT OF
 PLANNING, INDUSTRY & ENVIRONMENT.
-https://www.environment.nsw.gov.au/beachwatch `<br>`{=html}
+https://www.environment.nsw.gov.au/beachwatch 
 
 \[4\] Boehm AB, Sassoubre LM. Enterococci as Indicators of Environmental
 Fecal Contamination. 2014 Feb 5. In: Gilmore MS, Clewell DB, Ike Y, et
