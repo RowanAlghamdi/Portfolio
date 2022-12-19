@@ -1,4 +1,4 @@
-# use the markdown cheat sheet 
+#Rowan Alghamdi 
 Hello 
 theme: minima
 # use copy the link address of the image 
