@@ -2,7 +2,8 @@
 Hello 
 theme: minima
 # use copy the link address of the image 
-![](/images/IMG_1942.jpeg)
+# the image in the file images
+![](/images/image1.jpeg)
 
 # use built in themes 
 https://pages.github.com/themes/
