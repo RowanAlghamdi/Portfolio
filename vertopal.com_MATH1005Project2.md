@@ -179,6 +179,8 @@ boxplot(one_M,two_M,three_M,four_M,five_M,six_M,seven_M,eight_M,nine_M,ten_M,ele
        ylab="Enterococci Bacteria Level [CFU/100ml]",
        main="Enterococci levels during the months of 2018 in the Northern Beaches")
 ```
+![](/images/image1.png)
+![](/images/image2.png)
 
 ### 2.2.2 Numerical summary
 
@@ -373,6 +375,7 @@ boxplot(summer$Enterococci..cfu.100ml.,winter$Enterococci..cfu.100ml.,names=c("S
 ,main="Enterococci levels during summer and winter of 2018")
 ```
 
+![](/images/image3.png)
 
 
 ### 2.3.2 Levene's Test (Variance Test)
