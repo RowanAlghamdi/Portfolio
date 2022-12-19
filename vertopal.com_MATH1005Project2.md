@@ -417,7 +417,7 @@ t.test(summer$Enterococci..cfu.100ml.,winter$Enterococci..cfu.100ml.,var.equal=F
 
 ### 2.3.4 Analysis
 
-#### 2.3.4.1 Hypotheses $H_0$ vs. $H_1$
+#### 2.3.4.1 Hypotheses $H_0 vs H_1$
 
 **---Null Hypotheses---** 
 
