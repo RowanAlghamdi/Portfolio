@@ -16,6 +16,7 @@ theme: minima
 # use built in themes 
 https://pages.github.com/themes/
 
+![](/Rotating_earth_(large).gif)
 
 
 
