@@ -17,7 +17,9 @@ theme: minima
 https://pages.github.com/themes/
 
 ![](/Rotating_earth_(large).gif)
-![](/lucy.mov)
+
+
+![cat](/lucy.mov)
 
 
 
